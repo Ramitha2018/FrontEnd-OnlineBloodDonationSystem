@@ -1,0 +1,32 @@
+<body>
+<div style="text-align:center">
+  <h3>
+    Welcome to {{ title }}!
+  </h3>
+
+</div>
+<mat-card class="example-card">
+  <div class="login">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>User Login</mat-card-title>
+      <mat-card-subtitle>Enter Account Details</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div >
+        <label for="username">Username</label><br><br>
+        <input required="" type="text" minlength="7" maxlength="7" #username class="form-control" id="username" placeholder="Username" ><br>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label><br><br>
+        <input required="" type="password" #password (keyup.enter)="login(username.value, password.value)" class="form-control" id="password" placeholder="Password"><br>
+      </div>
+      <mat-card-actions align="center">
+        <button (click)="login(username.value, password.value)" class="btn btn-default"> Login</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </div>
+
+</mat-card>
+</body>
