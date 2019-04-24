@@ -1,21 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
-// import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { Route, RouterModule} from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { MatTableModule, MatInputModule , MatToolbarModule , MatListModule , MatDatepickerModule, MatNativeDateModule , MatFormFieldModule} from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule} from '@angular/material/card';
+
+
+// Components
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SignuppageComponent } from './signuppage/signuppage.component';
-import { MatTableModule, MatInputModule , MatToolbarModule , MatListModule , MatDatepickerModule, MatNativeDateModule , MatFormFieldModule} from '@angular/material';
-import { AuthService } from './shared/auth.service';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule} from '@angular/material/card';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
-import {Route, RouterModule} from '@angular/router';
 import { QuizComponent } from './quiz/quiz.component';
+import { LoginComponent } from './login/login.component';
+
+
+// Services
+import { AuthService } from './services/auth.service';
+import { QuizService } from './services/quiz.service';
+
+// Guard
+import { AuthGuard } from './services/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
+
 
 const ROUTES: Route[] = [
-  { path: '', component: LoginComponent}
+  { path: '', component: HomepageComponent},
+  { path: 'home', component: HomepageComponent},
+  { path: 'signup', component: SignuppageComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard]},
+  { path: 'update', component: QuizComponent}
 ];
 
 
@@ -25,11 +44,17 @@ const ROUTES: Route[] = [
     HomepageComponent,
     SignuppageComponent,
     LoginComponent,
-    QuizComponent
+    QuizComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      maxOpened : 1,
+      autoDismiss : true
+    }),
     RouterModule.forRoot(
       ROUTES , {onSameUrlNavigation: 'reload'}
     ),
@@ -44,9 +69,10 @@ const ROUTES: Route[] = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    NgbModule
   ],
-  providers: [AuthService, HttpClientModule],
+  providers: [AuthService, HttpClientModule, QuizService],
   bootstrap: [AppComponent]
 
 })

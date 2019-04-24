@@ -1,3 +1,122 @@
-<p>
-  quiz works!
-</p>
+<body class="bg-light">
+
+<div class="container">
+  <form (submit)="onSubmit()">
+
+    <div class="py-5 text-center">
+      <h2>First Time Login form</h2>
+    </div>
+
+    <h6 class="mb-3">Gender</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="gender" [(ngModel)]="gender" name="gender" required>
+        <option value="">Choose...</option>
+        <option >Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+
+    <h6 class="mb-3">Your residential district</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="district" [(ngModel)]="district" name="district" required>
+        <option value="">Choose..</option>
+        <option>Ampara</option>
+        <option>Anuradhapura</option>
+        <option>Badulla</option>
+        <option>Batticaloa</option>
+        <option>Colombo</option>
+        <option>Galle</option>
+        <option>Gampaha</option>
+        <option>Hambantota</option>
+        <option>Jaffna</option>
+        <option>Kalutara</option>
+        <option>Kandy</option>
+        <option>Kegalle</option>
+        <option>Kilinochchi</option>
+        <option>Kurunegala</option>
+        <option>Mannar</option>
+        <option>Matale</option>
+        <option>Matara</option>
+        <option>Monaragala</option>
+        <option>Mullaitivu</option>
+        <option>Nuwara Eliya</option>
+        <option>Polonnaruwa</option>
+        <option>Puttalam</option>
+        <option>Ratnapura</option>
+        <option>Trincomalee</option>
+        <option>Vavuniya</option>
+      </select>
+    </div>
+
+    <h6 class="mb-3">Your blood type</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="bloodtype" [(ngModel)]="bloodtype" name="bloodtype" required>
+        <option value="">Choose...</option>
+        <option>A</option>
+        <option>A+</option>
+        <option>B</option>
+        <option>B+</option>
+        <option>O</option>
+        <option>O+</option>
+        <option>AB</option>
+        <option>AB+</option>
+      </select>
+    </div>
+
+    <h6 class="mb-3">Donated before in the past 3 month period?</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="recenttdonate" [(ngModel)]="recentdonate" name="recentdonate" required>
+        <option value="">Choose...</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <h6 class="mb-3">Well and healthy at present?</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="currenthealth" [(ngModel)]="currenthealth" name="currenthealth" required>
+        <option value="">Choose...</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <h6 class="mb-3">Have you ever suffered from following cases?</h6>
+    <ul>
+      <li>HIV</li>
+      <li>Fits</li>
+      <li>Heart conditions</li>
+      <li>Cancer</li>
+      <li>Tuberculosis</li>
+      <li>Diabetes</li>
+    </ul>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="pasthealth" [(ngModel)]="pasthealth" name="pasthealth" required>
+        <option value="">Choose...</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+
+    <h6 class="mb-3">Are you available at the present?</h6>
+    <div class="col-md-3 mb-3">
+      <select class="custom-select d-block w-100" id="availabile" [(ngModel)]="available" name="available" required>
+        <option value="">Choose...</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+
+    <hr class="mb-4">
+    <button class="btn btn-dark btn-lg btn-block" type="submit">Submit</button>
+
+  </form>
+
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017-2018 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
