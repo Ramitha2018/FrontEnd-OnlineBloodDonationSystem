@@ -1,14 +1,18 @@
-export  class User {
+export class User {
+
   private _email: string;
   private _key: string;
-  private _fname : string;
+  private _fname: string;
   private _lname: string;
   private _NIC: string;
   private _Address: string;
   private _contact: number;
   private _firstsign: boolean;
   private _district: string;
-  private _isavailable: boolean;
+  private _isAvailable: boolean;
+  private _isHealthy: boolean;
+  private _pastHealth: boolean;
+  private _recentDonation: boolean;
 
   get fname(): string {
     return this._fname;
@@ -83,11 +87,34 @@ export  class User {
     this._district = value;
   }
 
-  get isavailable(): boolean {
-    return this._isavailable;
+  get isAvailable(): boolean {
+    return this._isAvailable;
   }
 
-  set isavailable(value: boolean) {
-    this._isavailable = value;
+  set isAvailable(value: boolean) {
+    this._isAvailable = value;
+  }
+
+  get isHealthy(): boolean {
+    return this._isHealthy;
+  }
+
+  get pastHealth(): boolean {
+    return this._pastHealth;
+  }
+
+  get recentDonation(): boolean {
+    return this._recentDonation;
+  }
+  set isHealthy(value: boolean) {
+    this._isHealthy = value;
+  }
+
+  set pastHealth(value: boolean) {
+    this._pastHealth = value;
+  }
+
+  set recentDonation(value: boolean) {
+    this._recentDonation = value;
   }
 }

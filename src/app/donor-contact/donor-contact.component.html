@@ -1,0 +1,14 @@
+
+<div *ngIf="donor">
+  <mat-card class="border-dark mb-3">
+    <mat-card-header>
+      Donor Contact Details
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-title>
+        {{donor.name}}
+      </mat-card-title>
+      Donor Contact Number <span>{{donor.contact_number}}</span>
+    </mat-card-content>
+  </mat-card>
+</div>

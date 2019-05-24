@@ -1,0 +1,118 @@
+<app-sidebar></app-sidebar>
+<body class="bg-light">
+<div class="container" id="search">
+  <form (submit)="onSubmit()">
+    <div class="col-md-8 order-md-1">
+      <div class="row">
+        <div class="col-md-5 mb-3">
+          <label for="district">District</label>
+          <select class="custom-select d-block w-100" id="district" [(ngModel)]="district" name="district" required>
+            <option value="">Choose...</option>
+            <option>Ampara</option>
+            <option>Anuradhapura</option>
+            <option>Badulla</option>
+            <option>Batticaloa</option>
+            <option>Colombo</option>
+            <option>Galle</option>
+            <option>Gampaha</option>
+            <option>Hambantota</option>
+            <option>Jaffna</option>
+            <option>Kalutara</option>
+            <option>Kandy</option>
+            <option>Kegalle</option>
+            <option>Kilinochchi</option>
+            <option>Kurunegala</option>
+            <option>Mannar</option>
+            <option>Matale</option>
+            <option>Matara</option>
+            <option>Monaragala</option>
+            <option>Mullaitivu</option>
+            <option>Nuwara Eliya</option>
+            <option>Polonnaruwa</option>
+            <option>Puttalam</option>
+            <option>Ratnapura</option>
+            <option>Trincomalee</option>
+            <option>Vavuniya</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a District.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="district">Blood Type</label>
+          <select class="custom-select d-block w-100" id="bloodtype" [(ngModel)]="bloodtype"
+                  name="bloodtype" required>
+            <option value="">Choose...</option>
+            <option>A</option>
+            <option>A+</option>
+            <option>B</option>
+            <option>B+</option>
+            <option>O</option>
+            <option>O+</option>
+            <option>AB</option>
+            <option>AB+</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mb-12">
+            <label for="setRequest">Do you want to get notifications of a matching donor later if none can be found now? <br> (Leave the checkbox empty if you do not wish to get notifications)       </label>
+            <input type="checkbox" id="setRequest" [(ngModel)]="needRequest" [ngModelOptions]="{standalone: true}"/>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="col-md-12 md-12">
+          <div class="row" *ngIf="needRequest" >
+            <div class="col-md-6 md-6">
+              <label for="email">Email </label>
+              <input type="email" class="form-control" [(ngModel)]="email" id="email" placeholder="you@example.com"
+                     name="email">
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <hr class="mb-3">
+        <div class="col-md-8 order-md-1">
+
+          <button class="btn btn-dark btn-lg btn-block" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <br><br>
+<!----------------------------------------------------------------------------------------------------------------------------------->
+
+  <div *ngIf="(found)">
+    <h3>Matching Results</h3>
+    <div class="col-md-12 order-md-12">
+      <div class="row">
+        <div class="col-md-8 mb-8">
+          <ul class="list-group">
+            <li
+              class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center" >
+              Donor Name
+              <span>District</span>
+            </li>
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center "
+                *ngFor="let donor of donors"  (click)="onClick(donor)">
+              {{donor.name}} <span class="badge badge-primary badge-pill">{{donor.district}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-3">
+          <app-donor-contact [donor]="selectedDonor"></app-donor-contact>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+<br><br><br> <br><br><br> <br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>

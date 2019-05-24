@@ -1,3 +1,5 @@
+<script src="app.component.ts"></script>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">LifeBreath</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,11 +14,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onSearchClick()" >Search</a>
+      </li>
     </ul>
   </div>
   <form class="form-inline my-2 my-lg-0 text-dark">
     <li><a (click)="onLogoutClick()" href="#"><strong>Logout</strong> </a></li>
   </form>
 </nav>
-
 <router-outlet></router-outlet>
+

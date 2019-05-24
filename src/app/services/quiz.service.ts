@@ -16,11 +16,12 @@ export class QuizService {
   }
 
   setQuiz(params): Observable<any> {
-    if(this.authService.isLoggedIn) {                                           // checking whether user is logged in before execution
+    if (this.authService.isLoggedIn) {                                           // checking whether user is logged in before execution
+      console.log(this.authService.token);
       let headers: HttpHeaders = new HttpHeaders();
       headers = headers.append('Content-Type', 'application/json'); // setting the proper headers.
       headers = headers.append( 'Accept', 'application/json');
-      headers = headers.append( 'Authentication', 'Bearer ' + this.authService.token);
+      headers = headers.append('Authorization', 'Bearer ' + this.authService.loadToken());
       return this.http.post( this.authService.rootURL + '/quiz', JSON.stringify(params), {headers: headers} ).pipe(
         map( response => {
           const result = response as any;

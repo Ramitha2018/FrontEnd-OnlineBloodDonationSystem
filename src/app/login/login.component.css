@@ -1,0 +1,35 @@
+.login{
+  background-color: #C5C9B8;
+  width: 100%;
+  color: #f1f1f1;
+  margin:  auto;
+  overflow: hidden;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  float: none;
+}
+.example-card {
+  max-width: 400px;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+
+.card-header {
+  background-color: azure;
+  align-items: center;
+  margin: auto;
+  padding: 10px 0;
+  justify-content: center;
+  float: none;
+}
+
+mat-card-title mat-card-subtitle {
+  align-content: center;
+}
+.example-header-image {
+
+  align-items: center;
+}

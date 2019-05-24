@@ -8,7 +8,7 @@ import {Router, RouterModule} from '@angular/router';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent{
   gender: string;
   district: string;
   bloodtype: string;
@@ -19,8 +19,6 @@ export class QuizComponent implements OnInit {
 
   constructor(private service: QuizService, private toastr: ToastrService, private router: Router) { }
 
-  ngOnInit() {
-  }
 
   onSubmit() {
     // Check for empty responses
@@ -40,6 +38,8 @@ export class QuizComponent implements OnInit {
           this.toastr.success('Account updated. Please wait', 'Success!');
           setTimeout( this.router.navigate(['profile']), 2500);
         }
+      }, err => {
+        this.toastr.error(err.message, 'Oops!');
       });
     } else {
       this.toastr.error('Please fill all the fields', 'Hold on')

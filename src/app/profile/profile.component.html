@@ -1,3 +1,197 @@
-<p>
-  profile works!
-</p>
+<app-sidebar></app-sidebar>
+<div class="row custom-row">
+  <div class= "col-md-10 custom-container jumbotron">
+
+    <fieldset>
+      <legend>Edit Profile</legend>
+        <div class="form-group">
+          <div style=" float: left">
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="name" ><strong>Full Name</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span *ngIf="!editMode"><label for="name">{{name}}</label></span>
+                <span *ngIf="editMode"><input type="text"
+                                              id="name"
+                                              [(ngModel)] = "name">
+              </span>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="E-mail" ><strong>Email</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span type="text"
+                      id="E-mail">{{email}}
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+               <label for="nic" ><strong>NIC</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+               <span  type="text" id='nic'>{{nic}}
+               </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="bldtype" ><strong>Blood Type</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span  type="text"
+                      id="bldtype">{{bldtype}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="address" ><strong>Address</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span *ngIf="!editMode"><label for="address">{{address}}</label></span>
+                <span *ngIf="editMode"><input type="text"
+                             id="address"
+                             [(ngModel)] = "address">
+                </span>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="district" ><strong>District</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span *ngIf="!editMode"><label for="district">{{district}}</label></span>
+                <span *ngIf="editMode">
+                  <select class="custom-select d-block w-100" id="district" [(ngModel)]="district" name="district" required>
+                    <option value="">Choose..</option>
+                    <option>Ampara</option>
+                    <option>Anuradhapura</option>
+                    <option>Badulla</option>
+                    <option>Batticaloa</option>
+                    <option>Colombo</option>
+                    <option>Galle</option>
+                    <option>Gampaha</option>
+                    <option>Hambantota</option>
+                    <option>Jaffna</option>
+                    <option>Kalutara</option>
+                    <option>Kandy</option>
+                    <option>Kegalle</option>
+                    <option>Kilinochchi</option>
+                    <option>Kurunegala</option>
+                    <option>Mannar</option>
+                    <option>Matale</option>
+                    <option>Matara</option>
+                    <option>Monaragala</option>
+                    <option>Mullaitivu</option>
+                    <option>Nuwara Eliya</option>
+                    <option>Polonnaruwa</option>
+                    <option>Puttalam</option>
+                    <option>Ratnapura</option>
+                    <option>Trincomalee</option>
+                    <option>Vavuniya</option>
+                  </select>
+                </span>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for = "tel"><strong>Contact Number</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span *ngIf="!editMode"><label for = "tel">{{contact}}</label></span>
+                <span *ngIf="editMode"><input type="text"
+                             id="tel"
+                             [(ngModel)] = "contact">
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+                <label for="B'Day"><strong>Date of Birth</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                <span type="date"
+                      id="B'Day">{{dob}}</span>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-6">
+
+                  <label for="gender"><strong>Gender</strong></label>
+              </div>
+              <div class="col-md-6 mb-6">
+                  <span type="text"
+                        id="gender">{{gender}}</span>
+
+              </div>
+            </div>
+          <br>
+
+          <h6 class="mb-3">Donated before in the past 3 month period?</h6>
+          <div class="col-md-5 mb-5">
+            <select class="custom-select d-block w-100" id="recenttdonate" [(ngModel)]="recentdonate" name="recentdonate" required>
+              <option value="">Choose...</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <h6 class="mb-3">Well and healthy at present?</h6>
+          <div class="col-md-5 mb-5">
+            <select class="custom-select d-block w-100" id="currenthealth" [(ngModel)]="currenthealth" name="currenthealth" required>
+              <option value="">Choose...</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+          <h6 class="mb-5">Have you ever suffered from following cases?</h6>
+          <ul>
+            <li>HIV</li>
+            <li>Fits</li>
+            <li>Heart conditions</li>
+            <li>Cancer</li>
+            <li>Tuberculosis</li>
+            <li>Diabetes</li>
+          </ul>
+          <div class="col-md-5 mb-5">
+            <select class="custom-select d-block w-100" id="pasthealth" [(ngModel)]="pasthealth" name="pasthealth" required>
+              <option value="">Choose...</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+
+          <h6 class="mb-3">Are you available at the present?</h6>
+          <div class="col-md-5 mb-5">
+            <select class="custom-select d-block w-100" id="availabile" [(ngModel)]="available" name="available" required>
+              <option value="">Choose...</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+
+      <div  style = " float: right ; margin-left: 15cm" >
+        <button class="btn btn-info"(click)="toggle()">Edit</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button type="reset" class="btn btn-default">Cancel</button>
+
+      </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
