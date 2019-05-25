@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FunctionBloodComponent } from './function-blood.component';
+import {SidebarComponent} from '../../sidebar/sidebar.component';
 
 describe('FunctionBloodComponent', () => {
   let component: FunctionBloodComponent;
@@ -8,7 +9,7 @@ describe('FunctionBloodComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FunctionBloodComponent ]
+      declarations: [ FunctionBloodComponent, SidebarComponent ]
     })
     .compileComponents();
   }));

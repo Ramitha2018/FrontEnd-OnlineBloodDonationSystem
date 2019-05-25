@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {ToastrService} from 'ngx-toastr';
 import {VerifyService} from '../services/verify.service';
+import {AdminService} from '../services/admin.service';
+import {Router} from '@angular/router';
+import {timeout} from 'rxjs/operators';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +29,11 @@ export class ProfileComponent implements OnInit {
 
   editMode: boolean;
 
-  constructor(private authService: AuthService, private toastr: ToastrService, private verifyService: VerifyService) { }
+  constructor(private authService: AuthService,
+              private toastr: ToastrService,
+              private verifyService: VerifyService,
+              private adminService: AdminService,
+              private router: Router) { }
 
   ngOnInit() {
     this.editMode = false;
@@ -90,6 +97,22 @@ export class ProfileComponent implements OnInit {
       });
     } else {
       this.toastr.error('Please enter a valid phone number', 'Error!');
+    }
+  }
+
+  deleteSelf() {
+    if (confirm('Are you sure to deactivate your account?')) {
+      this.adminService.deleteUser(this.email.toLowerCase()).subscribe( res => {
+        console.log(res);
+        if (res.code == '400') {
+          this.toastr.error(res.message, 'Oops!');
+          return;
+        } else if (res.code == '200') {
+          this.toastr.success('Account has been deleted!', 'Attention!');
+          this.authService.logOut();
+          this.router.navigate(['/']);
+        }
+      })
     }
   }
 }

@@ -6,7 +6,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
-/**
+
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
@@ -29,4 +29,4 @@ describe('SidebarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-*/
+

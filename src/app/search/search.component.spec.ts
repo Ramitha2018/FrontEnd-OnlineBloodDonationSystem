@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 import {DonorContactComponent} from '../donor-contact/donor-contact.component';
+import {SidebarComponent} from '../sidebar/sidebar.component';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -15,7 +16,7 @@ describe('SearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MatCardModule, FormsModule, HttpClientTestingModule, RouterTestingModule, ToastrModule.forRoot()],
-      declarations: [ SearchComponent, DonorContactComponent]
+      declarations: [ SearchComponent, DonorContactComponent, SidebarComponent]
     })
     .compileComponents();
   }));

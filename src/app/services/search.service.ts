@@ -16,7 +16,7 @@ export class SearchService {
     headers = headers.append('Content-Type', 'application/json'); // setting the proper headers.
     headers = headers.append( 'Accept', 'application/json');
 
-    return this.http.post(this.authService.rootURL + '/search', JSON.stringify(query),{headers: headers});
+    return this.http.post(this.authService.rootURL + '/search', JSON.stringify(query), {headers: headers});
   }
 
 // the service to call the backend for admin's search inquiries

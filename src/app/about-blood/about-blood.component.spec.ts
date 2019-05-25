@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutBloodComponent } from './about-blood.component';
+import {SidebarComponent} from '../sidebar/sidebar.component';
 
 describe('AboutBloodComponent', () => {
   let component: AboutBloodComponent;
@@ -8,7 +9,7 @@ describe('AboutBloodComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AboutBloodComponent ]
+      declarations: [ AboutBloodComponent, SidebarComponent ]
     })
     .compileComponents();
   }));

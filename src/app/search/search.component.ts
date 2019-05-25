@@ -1,6 +1,5 @@
-///<reference path="../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
+
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {SearchService} from '../services/search.service';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../services/auth.service';
@@ -36,8 +35,8 @@ export class SearchComponent implements OnInit {
 
   onSubmit() {
     if (this.bloodtype != undefined || this.district != undefined) {
-      if ( this.needRequest === false || (this.needRequest === true && this.email != undefined)){
-        if (this.verifyService.validateEmail(this.email)) {
+      if ( this.needRequest === false || (this.needRequest === true && this.email != undefined)) {
+        if (this.needRequest === false || (this.needRequest === true && this.verifyService.validateEmail(this.email))) {
           let query = {
             bldtype: this.bloodtype,
             email: this.email.toLowerCase(),
@@ -71,7 +70,7 @@ export class SearchComponent implements OnInit {
 
   }
 
-  onClick(donor){
+  onClick(donor) {
     this.selectedDonor = donor;
   }
 }

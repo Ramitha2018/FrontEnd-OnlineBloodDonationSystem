@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
   }
 
   toAboutBlood() {
-    this.router.navigate(['aboutBlood']);
+    this.router.navigate(['about-blood']);
   }
 
   toBloodFn() {
