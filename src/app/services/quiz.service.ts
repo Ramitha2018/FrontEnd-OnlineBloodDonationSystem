@@ -27,6 +27,7 @@ export class QuizService {
           const result = response as any;
           console.log(result.code);
           if (result.code == 200) {
+            this.authService.setUserDataLocally(result.updated_doc.value);
             return { success: true };
           } else if (result.code == 400){
             return { success: false };

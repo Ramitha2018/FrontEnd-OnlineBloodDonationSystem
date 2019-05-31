@@ -5,7 +5,7 @@
     <fieldset>
       <legend>Edit Profile</legend>
         <div class="form-group">
-          <div style=" float: left">
+          <div class="col-md-10 mb-10" style=" float: left">
             <div class="row">
               <div class="col-md-6 mb-6">
                 <label for="name" ><strong>Full Name</strong></label>
@@ -144,7 +144,7 @@
 
           <h6 class="mb-3">Donated before in the past 3 month period?</h6>
           <div class="col-md-5 mb-5">
-            <select class="custom-select d-block w-100" id="recenttdonate" [(ngModel)]="recentdonate" name="recentdonate" required>
+            <select class="custom-select d-block w-100" id="recentdonate" [(ngModel)]="recentdonate" name="recentdonate" required>
               <option value="">Choose...</option>
               <option value="1">Yes</option>
               <option value="0">No</option>
@@ -183,9 +183,18 @@
               <option value="0">No</option>
             </select>
           </div>
+<br><br>
+          <div>
+            <h2>Controls</h2>
+            <div class="col-md-10 mb-10">
+              <a class="nav-item nav-link alert-link" (click)="clearRequests()">Remove all pending search Requests</a>
+            </div>
 
-          <div class="col-md-5 mb-5">
-            <a class="alert-link" (click)="deleteSelf()">Deactivate Account</a>
+
+<br>
+            <div class="col-md-8 mb-8">
+              <a class="nav-item nav-link alert-link active" (click)="deleteSelf()">Deactivate Account</a>
+            </div>
           </div>
 
         </div>
@@ -193,7 +202,7 @@
       <div  style = " float: right ; margin-left: 15cm" >
         <button class="btn btn-info"(click)="toggle()">Edit</button>
         <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
-        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="reset" class="btn btn-default" (click)="toggle()">Cancel</button>
 
       </div>
       </div>

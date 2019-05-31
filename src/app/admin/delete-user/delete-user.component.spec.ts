@@ -6,6 +6,7 @@ import {MatCardModule} from '@angular/material';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ToastrModule} from 'ngx-toastr';
 import {SidebarComponent} from '../../sidebar/sidebar.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 
 describe('DeleteUserComponent', () => {
@@ -14,7 +15,7 @@ describe('DeleteUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatCardModule, HttpClientTestingModule,ToastrModule.forRoot()],
+      imports: [FormsModule, MatCardModule, HttpClientTestingModule, ToastrModule.forRoot(), RouterTestingModule],
       declarations: [ DeleteUserComponent, DonorContactComponent, SidebarComponent ],
 
     })

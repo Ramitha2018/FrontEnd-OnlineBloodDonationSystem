@@ -18,6 +18,10 @@ export class AppComponent {
   }
 
   onSearchClick() {
-    this.router.navigate(['search']).then();
-  }
+    if (this.authService.userType == 'admin') {
+      this.router.navigate(['admin-search']).then();
+    } else  {
+      this.router.navigate(['search']).then();
+    }
+      }
 }

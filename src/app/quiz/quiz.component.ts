@@ -19,7 +19,7 @@ export class QuizComponent{
 
   constructor(private service: QuizService, private toastr: ToastrService, private router: Router) { }
 
-
+// Updating user databsse
   onSubmit() {
     // Check for empty responses
     if(this.gender != '' && this.pasthealth != '' && this.bloodtype != '' && this.currenthealth != '' &&
@@ -30,12 +30,13 @@ export class QuizComponent{
         bloodtype: this.bloodtype,
         recentdonate: this.recentdonate,
         currenthealth: this.currenthealth,
-        pasthealth: this.pasthealth
+        pasthealth: this.pasthealth,
+        available: this.available
     }).subscribe( result => {
         if (!result.success) {
           this.toastr.error('Error occurred. Please try again.', 'Sorry!');
         } else if (result.success) {
-          this.toastr.success('Account updated. Please wait', 'Success!');
+          this.toastr.success('Account updated.', 'Success!');
           setTimeout( this.router.navigate(['profile']), 2500);
         }
       }, err => {

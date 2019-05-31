@@ -1,3 +1,7 @@
 .navbar{
   z-index: 100;
 }
+
+.my-lg-0:hover {
+  color: #0d0d0d;
+}

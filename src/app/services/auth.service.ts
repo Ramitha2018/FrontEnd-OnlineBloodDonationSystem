@@ -31,6 +31,7 @@ export class AuthService implements OnInit{
       map( response  => {
         console.log(response);
         const result = response as any;
+        console.log(result);
         this.user = result.userData;
         console.log(this.user);
         console.log(typeof (this.user));
@@ -41,7 +42,7 @@ export class AuthService implements OnInit{
         } else if (result.code == 201) {
           return {code: 201, token: result.token, type: result.userType };
         } else {
-          return false;
+          return result;
         }
       })
     );
@@ -57,7 +58,7 @@ export class AuthService implements OnInit{
           return false;
         } else if (result.code == 200) {
           return {message: 'verify email'};
-        } else if (result.code == 401){
+        } else if (result.code == 401) {
           return {message: 'email exists'};
         } else {
           return {message: 'failure'};
@@ -71,6 +72,7 @@ export class AuthService implements OnInit{
     localStorage.setItem('type', userData.type);
     localStorage.setItem('useremail', userData.email);
     localStorage.setItem('user', JSON.stringify(this.user));
+
     console.log(this.user);
     console.log(typeof(this.user));
     this.userType = userData.type;

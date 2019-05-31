@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit{
 
         this.service.login(user).subscribe(
           result => {
+            console.log('result');
             console.log(result);
             if (result.code == 200) {
               this.service.storeUserData(result);               // storing user data
@@ -39,8 +40,10 @@ export class LoginComponent implements OnInit{
               this.service.storeUserData(result);               // storing user data
               this.router.navigate(['/quiz']);       // create the page and route their
               console.log('reroute');
-            } else {
-              this.toastr.error('Invalid user name/password.', 'Error!',);
+            } else if (result.code == 401) {
+              this.toastr.error('Invalid user name or password. Try again', 'Error!',);
+            } else if (result.code == 303) {
+              this.toastr.error( 'Please verify your email', 'Attention');
             }
           }, error => {
             this.toastr.error('Error occurred. Try again', 'Error!');

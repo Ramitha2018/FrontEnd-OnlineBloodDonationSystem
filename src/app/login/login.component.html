@@ -1,4 +1,4 @@
- <mat-card class="example-card">
+ <!--mat-card class="example-card">
    <div class="card-header">
      <mat-card-title >
        <h2 class="form-signin-heading">
@@ -14,9 +14,9 @@
        <form class="form-signin" (submit)="login()">
          <div class="form-group">
            <!--div class="alert alert-danger">Invalid username and/or password.</div-->
-           <label for="inputEmail" class="sr-only">Email address</label>
+           <!--label for="inputEmail" class="sr-only">Email address</label>
            <input [(ngModel)]="email" name="email" type="email" id="inputEmail" class="form-control"
-                  placeholder="Your email address" required autofocus>
+                  placeholder="Your email[(ngModel)]="email" address" required autofocus>
          </div>
 
          <div class="form-group">
@@ -29,7 +29,33 @@
        </form>
      </mat-card-content>
    </div>
- </mat-card>
+ </mat-card-->
+<body background="../../assets/blood-donor-month-wallpapers-28330-2217999.png" style="background-size: cover">
+ <div class="wrapper fadeInDown">
+   <div id="formContent">
+     <!-- Tabs Titles -->
 
+     <!-- Icon -->
+     <div class="fadeIn first" >
+       <div class="avatar" style="padding-top: 10px">
+         <span><img src="../../assets/img_avatar.png" id="icon" alt="User Icon" /></span><span><img src="../../assets/img_avatar2.png" id="icon2" alt="User Icon" /></span>
+       </div>
 
+     </div>
 
+     <!-- Login Form -->
+     <form>
+       <input type="text" [(ngModel)]="email" id="login" class="fadeIn second" name="login" placeholder="login" >
+       <input type="password" [(ngModel)]="pass" id="password" class="fadeIn third" name="login" placeholder="password">
+       <input type="submit" class="fadeIn fourth" (click)="login()" value="Log in">
+     </form>
+
+     <!-- Remind Passowrd -->
+     <!--div id="formFooter">
+       <a class="underlineHover" href="#">Forgot Password?</a>
+     </div-->
+
+   </div>
+ </div>
+
+</body>

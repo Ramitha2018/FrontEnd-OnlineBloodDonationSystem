@@ -1,0 +1,11 @@
+mat-card {
+  display: flex;
+  border: 10px;
+
+}
+
+mat-card-title {
+  font-size: larger;
+  float-displace: block;
+  display: flex;
+}

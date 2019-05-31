@@ -30,16 +30,20 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.found = false;
     this.needRequest = false;
-    console.log(this.authService.token);
   }
 
   onSubmit() {
-    if (this.bloodtype != undefined || this.district != undefined) {
+    console.log(this.bloodtype,this.district,this.needRequest,this.email);
+    if (this.bloodtype != undefined) {
       if ( this.needRequest === false || (this.needRequest === true && this.email != undefined)) {
         if (this.needRequest === false || (this.needRequest === true && this.verifyService.validateEmail(this.email))) {
-          let query = {
+          if (this.email != undefined) {
+            this.email = this.email.toLowerCase();
+          }
+          this.selectedDonor = null;
+          const query = {
             bldtype: this.bloodtype,
-            email: this.email.toLowerCase(),
+            email: this.email,
             district: this.district,
             needRequest: this.needRequest
           };
@@ -55,7 +59,7 @@ export class SearchComponent implements OnInit {
               }
             }
             this.donors = searchResults.result;
-            // console.log(this.donors.result);
+             console.log(this.donors.result);
             this.found = true;
           }, err => {
             this.toastr.error('Error Occurred', 'Oops!');
@@ -63,9 +67,13 @@ export class SearchComponent implements OnInit {
         } else {
           this.toastr.error('Please Enter a valid email address', 'Error!');
         }
+      } else {
+        this.toastr.error('Please specify an email');
       }
-    } else {
-      this.toastr.error('Please at least one search criteria');
+    } else if (this.district) {
+      this.toastr.error('Please specify a blood type');
+    } else if (this.district == undefined) {
+      this.toastr.error('Please specify at least a blood type');
     }
 
   }

@@ -24,8 +24,18 @@ export class SearchService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json'); // setting the proper headers.
     headers = headers.append( 'Accept', 'application/json');
-    headers = headers.append( 'Authentication', 'Bearer ' + this.authService.token);
+    headers = headers.append( 'Authorization', 'Bearer ' + this.authService.token);
 
     return this.http.post(this.authService.rootURL + '/adminSearch', JSON.stringify(query), {headers: headers});
+  }
+
+// The service to delete user's search requests
+  removeRequests(): Observable <any>{
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json'); // setting the proper headers.
+    headers = headers.append( 'Accept', 'application/json');
+    headers = headers.append( 'Authorization', 'Bearer ' + this.authService.token);
+
+    return this.http.post(this.authService.rootURL + '/deleteReq', null, {headers: headers});
   }
 }

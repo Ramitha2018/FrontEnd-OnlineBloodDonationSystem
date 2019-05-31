@@ -1,3 +1,34 @@
 .container {
   padding-left: 250px;
+  padding-top: 50px;
+}
+
+table, tr, td {
+  border: 1pt solid black;
+}
+
+tr {
+  height: 60pt;
+}
+
+td {
+  width: 150pt;
+  border-style: solid solid solid none;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-top-width: 1pt;
+  border-right-width: 1pt;
+  border-bottom-width: 1pt;
+  padding: 0pt 5.4pt;
+  height: 60pt;
+}
+
+td.cell-body {
+  height: 25pt;
+  width: 100pt
+}
+
+tr.row-body {
+  height: 25pt;
 }

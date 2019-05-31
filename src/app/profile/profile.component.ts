@@ -4,7 +4,7 @@ import {ToastrService} from 'ngx-toastr';
 import {VerifyService} from '../services/verify.service';
 import {AdminService} from '../services/admin.service';
 import {Router} from '@angular/router';
-import {timeout} from 'rxjs/operators';
+import {SearchService} from '../services/search.service';
 
 @Component({
   selector: 'app-profile',
@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
               private toastr: ToastrService,
               private verifyService: VerifyService,
               private adminService: AdminService,
+              private searchService: SearchService,
               private router: Router) { }
 
   ngOnInit() {
@@ -59,7 +60,7 @@ export class ProfileComponent implements OnInit {
   }
 // toggling to edit mode
   toggle() {
-    this.editMode = true;
+    this.editMode = !this.editMode;
   }
 // toggling back from edit mode and submitting profile changes
   onSubmit() {
@@ -72,7 +73,7 @@ export class ProfileComponent implements OnInit {
         blood_type: this.bldtype,
         address: this.address,
         district: this.district,
-        contact_number: this.contact,
+        contact: this.contact,
         DOB: this.dob,
         gender: this.gender,
         recentdonate: this.recentdonate,
@@ -112,7 +113,23 @@ export class ProfileComponent implements OnInit {
           this.authService.logOut();
           this.router.navigate(['/']);
         }
-      })
+      });
+    }
+  }
+
+  clearRequests() {
+    if (confirm('Are you sure to remove ALL search requests?')) {
+      this.searchService.removeRequests().subscribe(res => {
+        console.log(res);
+        if (res.code == '400') {
+          this.toastr.error(res.message, 'Oops!');
+          return;
+        } else if (res.code == '200') {
+          this.toastr.success('All search requests have been cleared', 'Success!');
+        }
+      }, err => {
+        this.toastr.error('Error Occurred. Try again', 'Oops!');
+      });
     }
   }
 }

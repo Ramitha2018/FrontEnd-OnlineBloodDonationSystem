@@ -7,7 +7,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MatCardModule} from '@angular/material';
-
+/**
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
@@ -31,3 +31,4 @@ describe('ProfileComponent', () => {
   });
 });
 
+*/
