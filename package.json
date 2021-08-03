@@ -29,7 +29,7 @@
     "dateformat": "^3.0.3",
     "ngx-toastr": "^10.0.2",
     "rxjs": "6.0.0",
-    "tar": "^4.4.8",
+    "tar": "^4.4.15",
     "zone.js": "^0.8.26",
     "typescript": "~2.8.0",
     "@angular/cli": "~6.0.8",
